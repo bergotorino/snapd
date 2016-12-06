@@ -366,6 +366,7 @@ var (
 		"pulseaudio":       {"app", "core"},
 		"serial-port":      {"core", "gadget"},
 		"udisks2":          {"app"},
+		"uhid":             {"core", "gadget"},
 		// snowflakes
 		"docker": nil,
 		"lxd":    nil,
