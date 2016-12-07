@@ -31,6 +31,11 @@ const pulseaudioConnectedPlugAppArmor = `
 
 owner /{,var/}run/pulse/ r,
 owner /{,var/}run/pulse/native rwk,
+
+/usr/share/applications/ rw,
+
+owner /{,var/}run/user/*/pulse/ rwk,
+/run/user/1000/pulse/ rw,
 `
 
 const pulseaudioConnectedPlugAppArmorDesktop = `
@@ -43,6 +48,9 @@ owner @{HOME}/.pulse-cookie rk,
 owner @{HOME}/.config/pulse/cookie rk,
 owner /{,var/}run/user/*/pulse/ rwk,
 owner /{,var/}run/user/*/pulse/native rwk,
+
+/usr/share/applications/ rw,
+/run/user/1000/pulse/ rw,
 `
 
 const pulseaudioConnectedPlugSecComp = `
@@ -90,8 +98,12 @@ network netlink raw,
 owner /{,var/}run/pulse/ rw,
 owner /{,var/}run/pulse/** rwk,
 
+/run/user/1000/pulse/ rw,
+
 # Shared memory based communication with clients
 /{run,dev}/shm/pulse-shm-* rwk,
+
+/usr/share/applications/ rw,
 `
 
 const pulseaudioPermanentSlotSecComp = `
